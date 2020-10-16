@@ -1,21 +1,21 @@
-package InterfaceEx2;
+package shapeProject;
 
+import InterfaceEx2.*;
 import TurtleGraphics.Pen;
 
-public class Circle implements Shape {
+public class Circle extends Shape {
 
-    protected double xPos, yPos, radius;
+    //xPos and yPos are inherited form Shape
+    protected double radius;
     //protected = available here and to children only
 
     public Circle() {
-        xPos = 0;
-        yPos = 0;
+        super(); //up to Shape
         radius = 1;
     }
 
     public Circle(double x, double y, double r) {
-        xPos = x;
-        yPos = y;
+        super(x, y);
         radius = r;
     }
 
@@ -26,12 +26,12 @@ public class Circle implements Shape {
 
     @Override
     public void draw(Pen p) {
-        double side = 2*Math.PI * radius /120;
+        double side = 2 * Math.PI * radius / 120;
         //120-sided shape
         p.up();
         p.move(xPos, yPos);
         //go to edge
-        
+
         p.setDirection(0);
         p.move(radius);
         p.setDirection(90);
@@ -42,21 +42,7 @@ public class Circle implements Shape {
         }
     }
 
-    @Override
-    public double getXPos() {
-        return xPos;
-    }
 
-    @Override
-    public double getYPos() {
-        return yPos;
-    }
-
-    @Override
-    public void move(double xLoc, double yLoc) {
-        xPos = xLoc;
-        yPos = yLoc;
-    }
 
     @Override
     public void stretchBy(double factor) {
@@ -67,8 +53,7 @@ public class Circle implements Shape {
     public String toString() {
         String str = "CIRCLE\n";
         str += "Radius: " + radius + "\n";
-        str += ("(x,y) = (" + xPos + ", " + yPos + ")\n");
-        str += "Area: " + area();
+        str += super.toString();//get the rest from the parent
         return str;
     }
 }
