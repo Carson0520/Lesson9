@@ -24,28 +24,34 @@ abstract public class Shape {
     //abstract method is declared like it is in interface
     abstract public double area();
 
+    abstract public double perimeter();
+
     abstract public void draw(Pen p);
 
     abstract public void stretchBy(double factor);
 
     //these methods are identical in all shapes
     //so we can provide code here
-    public double getXPos() {
+    //final means children can NOT over-ride these methods
+    final public double getXPos() {
         return xPos;
     }
 
-    public double getYPos() {
+    final public double getYPos() {
         return yPos;
     }
 
-    public void move(double xLoc, double yLoc) {
+    final public void move(double xLoc, double yLoc) {
         xPos = xLoc;
         yPos = yLoc;
     }
 
+
+//this should not be final cuz children override this method
     public String toString() {
         String str = ("(x,y) = (" + xPos + ", " + yPos + ")\n");
-        str += "Area: " + area();
+        str += "Area: " + area() + "\n";
+        str += "Perimeter: " + perimeter();
         return str;
     }
 }

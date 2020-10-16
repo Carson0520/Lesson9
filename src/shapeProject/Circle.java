@@ -56,4 +56,9 @@ public class Circle extends Shape {
         str += super.toString();//get the rest from the parent
         return str;
     }
+
+    @Override
+    public double perimeter() {
+        return Math.PI*2*radius;
+    }
 }

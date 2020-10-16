@@ -48,12 +48,13 @@ public class Wheel extends Circle {
     }
 
     //orver ride the toString Method()
-    public String toStrin() {
+    public String toString() {
         String str = "WHEEL\n";
         str += "Radius: " + radius + "\n";
         str += ("(x,y) = (" + xPos + ", " + yPos + ")\n");
         str += "Number of Spokes: " + spokes + "\n";
-        str += "Area: " + area();
+        str += "Area: " + area()+"\n";
+        str += "Perimeter: " + perimeter();
         return str;
     }
 }

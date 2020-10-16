@@ -18,7 +18,10 @@ public class Rect extends Shape {
         width = w;
         height = h;
     }
-
+    public void resize (int newsize) {
+       width = newsize;
+       height = newsize;
+    }
     @Override
     public double area() {
         return width * height;
@@ -51,5 +54,10 @@ public class Rect extends Shape {
         str += "Width x Height: " + width + " x " + height + "\n";
         str += super.toString();
         return str;
+    }
+
+    @Override
+    public double perimeter() {
+        return (width * 2) + (height * 2);
     }
 }
