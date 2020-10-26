@@ -4,9 +4,9 @@ package employeeProject.assignment;
 abstract public class Employee {
 
     private String name;
-    private int type;
-    private double rate;
-    private int hours;
+    protected int type;
+    protected double rate;
+    protected int hours;
 
     private static double MIN_RATE = 6.75;
     private static double MAX_RATE = 30.50;
@@ -31,7 +31,7 @@ abstract public class Employee {
         return "between " + MIN_RATE + " and " + MAX_RATE;
     }
 
-    public static String getHoursRules() {
+    public static String getHourRules() {
         return "between " + MIN_HOURS + " and " + MAX_HOURS;
     }
 
@@ -43,7 +43,9 @@ abstract public class Employee {
             return true;
         }
     }
-
+public static double getTotalPay(){
+    return total_pay;
+}
     //don't need type anymore
     //instead we will create instances of FT and PT employess
     /*public boolean setType(int tp) {
@@ -76,6 +78,8 @@ abstract public class Employee {
     final public String getName() {
         return name;
     }
+    
+
 
     /*Abstract because both ft and pt will define it but it will be different
         for both.
